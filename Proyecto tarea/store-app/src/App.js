@@ -6,7 +6,7 @@ import axios from 'axios';
 //Components
 import Header from './componentes/header.js';
 import Home from './componentes/Home/Home.js';
-//import AddFruit from './componentes/AddFruit';
+import AddFruit from './componentes/AddFruit';
 
 
 
@@ -21,17 +21,17 @@ class App extends Component {
     }
   
 }
-//ocultar(){
-//this.setState({
-  //showMe:false
-//})
-//}
+ocultar(newState){
+  this.setState({
+showMe:false
+})
+}
 
-//mostrar(){
-//this.setState({
-  //showMe:true
-//})
-//}
+mostrar(newState){
+this.setState({
+  showMe:true
+})
+}
 
   onSubmit=(fruit)=>{
     axios.post('http://localhost:8080/api/fruta',fruit)
@@ -42,9 +42,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header/>
+        <Header />
         
+        {
+          this.state.showMe?
+        
+        <AddFruit
+        agregar={this.onSubmit}/>
+        :null
+        }
+ <button onClick={()=>this.ocultar()}>Ocultar menu</button>
+              <button onClick={()=>this.mostrar()}>Mostrar menu</button>
         <main>
+        <h2>{this.state.titulo}</h2>
           <Home/>
           </main>
       </div>

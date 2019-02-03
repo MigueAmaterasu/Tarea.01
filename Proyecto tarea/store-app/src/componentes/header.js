@@ -27,15 +27,7 @@ this.setState({
 			<li className="navBarItem active">
 				<a href="#home">Proteco store</a>
 			</li>
-			{
-          this.state.showMe?
-        
-        <AddFruit
-        agregar={this.onSubmit}/>
-        :null
-        }
-        <button onClick={()=>this.ocultar()}>Ocultar menu</button>
-        <button onClick={()=>this.mostrar()}>Mostrar menu</button>
+			       
 		</ul>
 		</nav>
 		</header>	
